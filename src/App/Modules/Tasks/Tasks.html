@@ -1,0 +1,104 @@
+﻿<div class="row animated fadeIn">
+	<div class="col-md-12">
+		<div class="ibox">
+			<div class="ibox-content">
+
+				<div class="input-group">
+					<input type="text" class="form-control" ng-model="TaskSearch" placeholder="Task Search">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-primary" ng-click="Search()"> <i class="fa fa-search"></i> Search</button>
+					</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="ibox">
+			<div class="ibox-content">
+				<h3>To-do</h3>
+				<p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+				<div class="input-group">
+					<input type="text" class="input-sm form-control" ng-model="TaskTitle" placeholder="Add new task.">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-sm" ng-click="AddNewTask()"> <i class="fa fa-plus"></i> Add task</button>
+					</span>
+				</div>
+				<ul data-ui-sortable="sortableOptions" class="sortable-list connectList agile-list" ng-model="Open">
+					<li class="open-element" ng-repeat="task in Open | filter: TaskSearch" ng-click="EditTask(task, 'Open')">
+						<div><b>{{task.title}}</b></div>
+						<div class="agile-detail">
+							<span class="label open">{{task.type}}</span>
+							<span class="pull-right" ng-click="RemoveTask(task, 'Open')"><i class="fa fa-trash"></i></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="ibox">
+			<div class="ibox-content">
+				<h3>In Progress</h3>
+				<p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+				<ul data-ui-sortable="sortableOptions" class="sortable-list connectList agile-list" ng-model="InProgress">
+					<li class="in-progress-element" ng-repeat="task in InProgress | filter: TaskSearch" ng-click="EditTask(task, 'InProgress')">
+						<div><b>{{task.title}}</b></div>
+						<div class="agile-detail">
+							<span class="label in-progress">{{task.type}}</span>
+							<span class="pull-right" ng-click="RemoveTask(task, 'InProgress')"><i class="fa fa-trash"></i></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="ibox">
+			<div class="ibox-content">
+				<h3>Done</h3>
+				<p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+				<ul data-ui-sortable="sortableOptions" class="sortable-list connectList agile-list" ng-model="Done">
+					<li class="done-element" ng-repeat="task in Done | filter: TaskSearch" ng-click="EditTask(task, 'Done')">
+						<div><b>{{task.title}}</b></div>
+						<div class="agile-detail">
+							<span class="label done">{{task.type}}</span>
+							<span class="pull-right" ng-click="RemoveTask(task, 'Done')"><i class="fa fa-trash"></i></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="TaskAddEditPopup.html">
+	<form name="frm" novalidate>
+		<div class="modal-header">
+			<button type="button" class="close" data-ng-click="Close()" aria-hidden="true">×</button>
+			<h3 class="modal-title">Edit Task</h3>
+		</div>
+
+		<div class="modal-body">
+			
+
+			<div class="form-group">
+				<input type="text" name="Title" class="form-control" ng-model="Task.title" placeholder="Title" />
+			</div>
+
+			<div class="form-group">
+				<input type="text" name="Type" class="form-control" ng-model="Task.type" placeholder="Type" />
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-ng-click="Close()"><i class="fa fa-close"></i>&nbsp;Close</button>
+			<button type="submit" class="btn btn-info" data-ng-click="Save()"><i class="fa fa-save"></i>&nbsp;Save</button>
+		</div>
+	</form>
+</script>

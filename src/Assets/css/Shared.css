@@ -1,0 +1,95 @@
+﻿body {
+	font-family: sans-serif;
+	color: #676a6c;
+}
+
+/* Reset rounded corners for all elements */
+input, select, span, table,
+label, td, th, p, a, button, code, pre, li {
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-ms-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+
+
+.block {display: block !important;}
+.inline-block {display: inline-block !important;}
+.margin10-left { margin-left: 10px !important; }
+.margin15-top { margin-top: 15px !important; }
+.font-color-white { color: #ffffff !important;}
+.font-size-24 { font-size: 24px !important; }
+
+
+/* tasks */
+.ibox {
+	clear: both;
+	margin-bottom: 25px;
+	margin-top: 0;
+	padding: 0;
+}
+
+.ibox-content {
+	clear: both;
+	background-color: #ffffff;
+	color: inherit;
+	padding: 15px 20px 20px 20px;
+	border-color: #e7eaec;
+	border-image: none;
+	border-style: solid solid none;
+	border-width: 1px 0px;
+}
+
+.ibox-content h3 {
+    margin-top: 5px;
+}
+
+.sortable-list {
+  padding: 10px 0;
+}
+
+.agile-list {
+  list-style: none;
+  margin: 0;
+}
+
+.agile-list li {
+  background: #FAFAFB;
+  border: 1px solid #e7eaec;
+  margin: 0px 0 10px 0;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.agile-list li:hover {
+  cursor: pointer;
+  background: #fff;
+}
+
+.agile-list li.open-element {
+  border-left: 3px solid #1ab394;
+}
+
+.agile-list li.in-progress-element {
+  border-left: 3px solid #f8ac59;
+}
+ 
+.agile-list li.done-element {
+  border-left: 3px solid #1c84c6;
+
+}
+
+.open {
+	background: #1ab394;
+	border-color: #1ab394;
+}
+
+.in-progress {
+	background: #f8ac59;
+	border-color: #f8ac59;
+}
+
+.done {
+	background: #1c84c6;
+	border-color: #1c84c6;
+}
